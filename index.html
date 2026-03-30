@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happiest Birthday Afi ❤️</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            pink: '#FFB6C1', // Soft Pink
+                            peach: '#FFDAB9', // Peach
+                            rose: '#FF69B4', // Hot Pink
+                            gold: '#FFD700'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        cursive: ['Dancing Script', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://unpkg.com/dexie@3.2.4/dist/dexie.js"></script>
+</head>
+<body class="bg-[#FDF2F5] h-full text-slate-800 font-sans overflow-hidden selection:bg-brand-rose selection:text-white">
+
+    <!-- Container for dynamic heart particles -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Page 1: Hero Landing -->
+    <section id="hero" class="page active h-screen w-full transition-opacity duration-800 overflow-hidden">
+        <div class="page-container flex flex-col items-center justify-center p-6 text-center space-y-12">
+            <div class="space-y-4">
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-cursive font-bold drop-shadow-lg tracking-wide leading-tight animate-text-shine">
+                    Happy Birthday <br>My Princess ❤️
+                </h1>
+                <p class="text-brand-rose font-medium text-lg sm:text-2xl tracking-[0.2em] uppercase opacity-70">Afi, My Queen</p>
+            </div>
+
+            <div class="glass-card rounded-[3rem] p-8 sm:p-12 max-w-2xl mx-auto border border-white/60 shadow-[0_20px_50px_rgba(255,182,193,0.4)]">
+                <h2 class="text-3xl sm:text-4xl font-cursive mb-4 text-brand-rose">Heyy Baby ❤️</h2>
+                <p class="text-lg sm:text-xl text-slate-600 font-light leading-relaxed">
+                    I wanted to give you something as beautiful and unique as you are. This little space is a tribute to the love I have for you.
+                </p>
+            </div>
+
+            <button data-target="love-letter" class="group relative px-12 py-5 bg-white text-brand-rose rounded-full font-bold text-xl tracking-widest shadow-xl border-2 border-brand-rose/20 hover:border-brand-rose transition-all duration-500 hover:shadow-[0_0_30_rgba(255,105,180,0.5)] animate-pulse-glow overflow-hidden">
+                <span class="relative z-10">OPEN 💌</span>
+                <div class="absolute inset-0 bg-brand-rose -translate-x-full group-hover:translate-x-0 transition-transform duration-500 opacity-10"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- Page 2: Love Letter (Updated with Ramaaz's message) -->
+    <section id="love-letter" class="page h-screen w-full transition-opacity duration-800">
+        <div class="page-container flex flex-col items-center py-16 px-4">
+            <div class="relative max-w-3xl w-full">
+                <div class="absolute -top-10 -left-6 text-6xl md:text-8xl opacity-30 z-0">🌸</div>
+                <div class="absolute -bottom-10 -right-6 text-6xl md:text-8xl opacity-30 z-0">✨</div>
+                
+                <div class="letter-card glass-card rounded-[2.5rem] p-8 sm:p-16 border border-brand-gold/40 shadow-2xl relative z-10">
+                    <div class="space-y-6 text-base sm:text-lg md:text-xl text-slate-700 font-medium leading-relaxed italic">
+                        <p class="font-cursive text-3xl sm:text-5xl text-brand-rose not-italic mb-6">Happy Birthday, my love Afi ❤️</p>
+                        
+                        <p>From the moment you came into my life, everything felt brighter, warmer, and more meaningful. ✨ You’re not just my girlfriend you’re <span class="bg-brand-pink/20 px-1 rounded not-italic">wife</span> 💍, my peace 🕊️, my happiness 🌻, my safe place, and the reason behind my smile every single day. 😊</p>
+
+                        <p>I’m so grateful for your love, your care, and the way you understand me like no one else ever could. 🫂 You mean everything to me, and I honestly can’t imagine a world without you in it. 🌍</p>
+
+                        <p>On your special day, I just want to remind you how deeply I love you and how lucky I am to have you. 🍀 I promise to always stand by you, support you, and love you more with every passing day. 🤝💖</p>
+                        
+                        <div class="pt-8 text-right font-cursive text-2xl sm:text-4xl text-brand-rose leading-snug">
+                            <p class="not-italic text-sm sm:text-lg mb-2 font-bold tracking-widest text-[#FF69B4]">Happy Birthday again, my hubby kutty 💖</p>
+                            <p>Forever yours,</p>
+                            <p class="mt-2 text-3xl sm:text-5xl scale-110 origin-right">Ramaaz 💫</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button data-target="reasons" class="mt-12 px-10 py-3 bg-brand-rose text-white rounded-full font-bold shadow-lg hover:bg-brand-pink transition-all transform hover:scale-105">
+                Surprises continue... ✨
+            </button>
+        </div>
+    </section>
+
+    <!-- Page 3: Reasons Why You're Special -->
+    <section id="reasons" class="page h-screen w-full transition-opacity duration-800">
+        <div class="page-container flex flex-col items-center py-12 px-4 space-y-10">
+            <div class="text-center space-y-2">
+                <h2 class="text-4xl sm:text-7xl font-bold font-cursive animate-text-shine">My Reasons ❤️</h2>
+                <p class="text-brand-rose/60 font-medium tracking-[0.3em] text-sm uppercase">Tap each card</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl w-full perspective-1000">
+                <div class="flip-card h-36 sm:h-48 cursor-pointer group">
+                    <div class="flip-card-inner relative w-full h-full text-center">
+                        <div class="flip-card-front absolute w-full h-full glass-card rounded-3xl flex items-center justify-center border-white/50 group-hover:border-brand-rose transition-colors duration-500"><span class="text-4xl md:text-5xl group-hover:scale-125 transition-transform">🕊️</span></div>
+                        <div class="flip-card-back absolute w-full h-full bg-gradient-to-br from-brand-rose to-brand-pink text-white p-6 rounded-3xl flex items-center justify-center font-cursive text-2xl md:text-3xl">My Safe Place</div>
+                    </div>
+                </div>
+                <div class="flip-card h-36 sm:h-48 cursor-pointer group">
+                    <div class="flip-card-inner relative w-full h-full text-center">
+                        <div class="flip-card-front absolute w-full h-full glass-card rounded-3xl flex items-center justify-center border-white/50 group-hover:border-brand-rose"><span class="text-4xl md:text-5xl group-hover:scale-125 transition-transform">🌻</span></div>
+                        <div class="flip-card-back absolute w-full h-full bg-gradient-to-br from-brand-rose to-brand-pink text-white p-6 rounded-3xl flex items-center justify-center font-cursive text-2xl md:text-3xl">My Happiness</div>
+                    </div>
+                </div>
+                <div class="flip-card h-36 sm:h-48 cursor-pointer group">
+                    <div class="flip-card-inner relative w-full h-full text-center">
+                        <div class="flip-card-front absolute w-full h-full glass-card rounded-3xl flex items-center justify-center border-white/50 group-hover:border-brand-rose"><span class="text-4xl md:text-5xl group-hover:scale-125 transition-transform">👑</span></div>
+                        <div class="flip-card-back absolute w-full h-full bg-gradient-to-br from-brand-rose to-brand-pink text-white p-6 rounded-3xl flex items-center justify-center font-cursive text-2xl md:text-3xl">My True Queen</div>
+                    </div>
+                </div>
+                <div class="flip-card h-36 sm:h-48 cursor-pointer group">
+                    <div class="flip-card-inner relative w-full h-full text-center">
+                        <div class="flip-card-front absolute w-full h-full glass-card rounded-3xl flex items-center justify-center border-white/50 group-hover:border-brand-rose"><span class="text-4xl md:text-5xl group-hover:scale-125 transition-transform">✨</span></div>
+                        <div class="flip-card-back absolute w-full h-full bg-gradient-to-br from-brand-rose to-brand-pink text-white p-6 rounded-3xl flex items-center justify-center font-cursive text-2xl md:text-3xl">My World</div>
+                    </div>
+                </div>
+                <div class="flip-card h-36 sm:h-48 cursor-pointer group">
+                    <div class="flip-card-inner relative w-full h-full text-center">
+                        <div class="flip-card-front absolute w-full h-full glass-card rounded-3xl flex items-center justify-center border-white/50 group-hover:border-brand-rose"><span class="text-4xl md:text-5xl group-hover:scale-125 transition-transform">💫</span></div>
+                        <div class="flip-card-back absolute w-full h-full bg-gradient-to-br from-brand-rose to-brand-pink text-white p-6 rounded-3xl flex items-center justify-center font-cursive text-2xl md:text-3xl">My Peace</div>
+                    </div>
+                </div>
+                <div class="flip-card h-36 sm:h-48 cursor-pointer group">
+                    <div class="flip-card-inner relative w-full h-full text-center">
+                        <div class="flip-card-front absolute w-full h-full glass-card rounded-3xl flex items-center justify-center border-white/50 group-hover:border-brand-rose"><span class="text-4xl md:text-5xl group-hover:scale-125 transition-transform">🫂</span></div>
+                        <div class="flip-card-back absolute w-full h-full bg-gradient-to-br from-brand-rose to-brand-pink text-white p-6 rounded-3xl flex items-center justify-center font-cursive text-2xl md:text-3xl">My Forever</div>
+                    </div>
+                </div>
+            </div>
+
+            <button data-target="final" class="px-12 py-4 bg-brand-rose text-white rounded-full font-bold shadow-xl hover:bg-brand-pink transition-all animate-pulse-glow">
+                Wait, one more thing... ❤️
+            </button>
+        </div>
+    </section>
+
+    <!-- Page 4: Final Reveal -->
+    <section id="final" class="page h-screen w-full transition-opacity duration-800">
+        <div class="page-container flex flex-col items-center justify-center p-6 text-center space-y-12">
+            <div class="glass-card rounded-[4rem] p-12 sm:p-20 text-center border-2 border-brand-rose/30 w-full max-w-3xl relative shadow-[0_30px_100px_rgba(255,105,180,0.35)] overflow-hidden">
+                <div class="absolute -top-10 -right-10 bg-brand-pink/30 w-40 h-40 blur-[100px] pointer-events-none"></div>
+                <div class="absolute -bottom-10 -left-10 bg-brand-rose/20 w-40 h-40 blur-[100px] pointer-events-none"></div>
+
+                <div class="relative z-10 space-y-10">
+                    <h3 class="text-3xl sm:text-5xl md:text-7xl font-bold font-cursive animate-text-shine">Our Love ❤️</h3>
+                    <p class="text-slate-600 font-light text-xl sm:text-2xl italic leading-relaxed">
+                        "If anyone asks who's in my brain… <br>it's always my wife Afi ❤️"
+                    </p>
+                    
+                    <div class="pt-6">
+                        <button id="reveal-btn" class="w-full sm:w-auto px-16 py-6 bg-brand-rose text-white rounded-full font-extrabold text-2xl shadow-[0_15px_40px_rgba(255,105,180,0.6)] transform transition hover:scale-110 active:scale-95 duration-300">
+                            CELEBRATE US ✨
+                        </button>
+                        <div id="final-surprise" class="hidden mt-10 p-8">
+                             <p class="text-4xl sm:text-6xl animate-pulse-slow">💑</p>
+                             <p class="text-xl sm:text-3xl mt-6 font-cursive text-brand-rose font-bold">Happy Birthday My Queen Afi!</p>
+                        </div>
+                    </div>
+
+                    <button data-target="hero" class="mt-8 text-brand-rose/50 hover:text-brand-rose transition-colors text-sm font-bold tracking-widest block mx-auto py-2 border-b-2 border-transparent hover:border-brand-rose">REPLAY THE LOVE ❤️</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>
