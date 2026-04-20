@@ -2,7 +2,7 @@ function createParticles() {
     const container = document.getElementById('particles');
     if (!container) return;
 
-    const emojis = ['🤍', '💕', '✨', '💖', '💗', '🍓'];
+    const emojis = ['🤍', '🩵', '✨', '💎', '🦋', '❄️'];
     
     // Ambient heart particles
     setInterval(() => {
@@ -55,19 +55,19 @@ function handleReveal() {
                 }));
             }
 
-            fire(0.25, { spread: 26, startVelocity: 55, colors: ['#FFB6C1', '#ffc0cb', '#FF69B4'] });
-            fire(0.2, { spread: 60, colors: ['#FFB6C1', '#ffc0cb', '#FF69B4'] });
-            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8, colors: ['#FFB6C1', '#ffc0cb', '#FF69B4'] });
-            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2, colors: ['#FFB6C1', '#ffc0cb', '#FF69B4'] });
-            fire(0.1, { spread: 120, startVelocity: 45, colors: ['#FFB6C1', '#ffc0cb', '#FF69B4'] });
+            fire(0.25, { spread: 26, startVelocity: 55, colors: ['#B0E0E6', '#ADD8E6', '#89CFF0'] });
+            fire(0.2, { spread: 60, colors: ['#B0E0E6', '#ADD8E6', '#89CFF0'] });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8, colors: ['#B0E0E6', '#ADD8E6', '#89CFF0'] });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2, colors: ['#B0E0E6', '#ADD8E6', '#89CFF0'] });
+            fire(0.1, { spread: 120, startVelocity: 45, colors: ['#B0E0E6', '#ADD8E6', '#89CFF0'] });
             
             setTimeout(() => {
                  const duration = 3000;
                  const end = Date.now() + duration;
 
                  (function frame() {
-                     confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#FFB6C1', '#ffc0cb', '#FF69B4'] });
-                     confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#FFB6C1', '#ffc0cb', '#FF69B4'] });
+                     confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#B0E0E6', '#ADD8E6', '#89CFF0'] });
+                     confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#B0E0E6', '#ADD8E6', '#89CFF0'] });
                      if (Date.now() < end) requestAnimationFrame(frame);
                  }());
             }, 500);
@@ -105,8 +105,55 @@ document.addEventListener('DOMContentLoaded', () => {
     initFlipCards();
     handleReveal();
 
-    // Default to the hero page
-    navigateTo('hero');
+    // Countdown Logic
+    // Target Date: April 21, 2026 at 12:00 AM (Midnight)
+    const targetDate = new Date('2026-04-21T00:00:00').getTime();
+    
+    function updateTimer() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+        
+        const cdHours = document.getElementById('cd-hours');
+        const cdMinutes = document.getElementById('cd-minutes');
+        const cdSeconds = document.getElementById('cd-seconds');
+
+        if (difference > 0) {
+            const hours = Math.floor((difference / (1000 * 60 * 60)));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            if (cdHours) cdHours.innerText = hours.toString().padStart(2, '0');
+            if (cdMinutes) cdMinutes.innerText = minutes.toString().padStart(2, '0');
+            if (cdSeconds) cdSeconds.innerText = seconds.toString().padStart(2, '0');
+            
+            return false;
+        } else {
+            if (cdHours) cdHours.innerText = "00";
+            if (cdMinutes) cdMinutes.innerText = "00";
+            if (cdSeconds) cdSeconds.innerText = "00";
+            return true;
+        }
+    }
+
+    const isTimeUp = updateTimer();
+    
+    if (!isTimeUp) {
+        navigateTo('countdown');
+        const timerInterval = setInterval(() => {
+            const done = updateTimer();
+            if (done) {
+                clearInterval(timerInterval);
+                const unlockContainer = document.getElementById('unlock-container');
+                if (unlockContainer) {
+                    unlockContainer.classList.remove('hidden');
+                    unlockContainer.classList.add('animate-fade-in-up');
+                }
+            }
+        }, 1000);
+    } else {
+        // If time is up, directly load the hero page
+        navigateTo('hero');
+    }
 
     // Attach click events for navigation
     document.querySelector('[data-target="love-letter"]').addEventListener('click', (e) => {
