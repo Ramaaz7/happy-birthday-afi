@@ -96,9 +96,45 @@
                 </p>
             </div>
 
-            <button data-target="love-letter" class="btn-glossy-white group px-12 py-5 text-brand-rose rounded-full font-bold text-xl tracking-widest transition-all duration-500 hover:scale-105 active:scale-95 animate-pulse-glow">
-                <span class="relative z-10 drop-shadow-sm">OPEN 💌</span>
-            </button>
+            <div class="flex flex-col sm:flex-row gap-6 mt-4 items-center">
+                <button data-target="love-letter" class="btn-glossy-white group px-12 py-5 text-brand-rose rounded-full font-bold text-xl tracking-widest transition-all duration-500 hover:scale-105 active:scale-95 animate-pulse-glow">
+                    <span class="relative z-10 drop-shadow-sm">OPEN 💌</span>
+                </button>
+                <button data-target="sorry" class="px-8 py-4 text-slate-500 hover:text-brand-rose font-medium text-lg tracking-wide transition-all border-b border-transparent hover:border-brand-rose">
+                    I'm Sorry 🥺
+                 </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page: Sorry -->
+    <section id="sorry" class="page h-screen w-full transition-opacity duration-800">
+        <div class="page-container flex flex-col items-center justify-center py-16 px-6">
+            <div class="glass-card flex flex-col items-center justify-center text-center rounded-[3rem] p-8 sm:p-16 max-w-2xl mx-auto border border-white/60 shadow-[0_20px_50px_rgba(137,207,240,0.4)] relative z-10">
+                <div class="text-5xl sm:text-7xl mb-6">🥺</div>
+                <h2 class="text-3xl sm:text-5xl font-cursive mb-6 text-brand-rose leading-relaxed">I am truly sorry...</h2>
+                <div class="space-y-6 text-slate-600 text-lg sm:text-xl font-light leading-relaxed mb-10">
+                    <p>
+                        I never meant to hurt you or make you feel anything less than perfect. 
+                        You mean the entire world to me, and seeing you upset hurts me more than anything else. 🫂
+                    </p>
+                    <p>
+                        I promise to do better, be more understanding, and cherish you the way you deserve to be cherished every single day.
+                    </p>
+                    <p class="font-medium text-brand-rose italic mt-4">
+                        Please forgive me, my queen? 🦋
+                    </p>
+                </div>
+                
+                <div class="mt-8 flex flex-col sm:flex-row gap-6 justify-center items-center w-full">
+                    <button data-target="hero" class="btn-glossy-rose px-10 py-4 w-full sm:w-auto rounded-full font-bold text-lg tracking-widest transition-all duration-500 hover:scale-105 active:scale-95 shadow-xl">
+                        I FORGIVE YOU 💖
+                    </button>
+                    <button data-target="love-letter" class="px-8 py-4 text-slate-500 hover:text-brand-pink font-medium transition-all">
+                        Skip to Letter 💌
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 

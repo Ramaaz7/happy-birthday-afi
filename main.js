@@ -155,30 +155,14 @@ document.addEventListener('DOMContentLoaded', () => {
         navigateTo('hero');
     }
 
-    // Attach click events for navigation
-    document.querySelector('[data-target="love-letter"]').addEventListener('click', (e) => {
-        e.preventDefault();
-        navigateTo('love-letter');
-    });
-
-    document.querySelectorAll('[data-target="reasons"]').forEach(btn => {
+    // Attach click events for dynamic navigation
+    document.querySelectorAll('[data-target]').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            navigateTo('reasons');
-        });
-    });
-
-    document.querySelectorAll('[data-target="final"]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            navigateTo('final');
-        });
-    });
-
-    document.querySelectorAll('[data-target="hero"]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            navigateTo('hero');
+            const target = btn.getAttribute('data-target');
+            if (target) {
+                navigateTo(target);
+            }
         });
     });
 });
